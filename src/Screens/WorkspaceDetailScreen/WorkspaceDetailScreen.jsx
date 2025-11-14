@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch.jsx'
 import { getWorkspaceById } from '../../services/workspaceService.js'
 import InviteUserForm from '../../Components/InviteUserForm/InviteUserForm.jsx'
 import ChannelList from '../../Components/ChannelList/ChannelList.jsx'
+import "./WorkspaceDetailScreen.css"
 
 const WorkspaceDetailScreen = () => {
     const { workspace_id} = useParams()

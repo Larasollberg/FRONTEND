@@ -1,0 +1,326 @@
+    .container-login {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    }
+
+    .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    margin-top: 1rem;
+    flex: 1;
+    padding: 2rem 0;
+    justify-content: center; /* Centrado vertical por defecto también */
+    min-height: 70vh; /* Altura mínima para evitar compresión */
+    }
+
+    .login-card {
+    width: 100%;
+    max-width: 550px;
+    background: #ffffff;
+    margin: auto; /* Centrado automático */
+    }
+
+    .login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    }
+
+    .login-logo img {
+    width: 125px;
+    height: auto;
+    }
+
+    .login-title {
+    font-size: 3.3rem;
+    font-weight: 800;
+    color: #1d1c1d;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    }
+
+    .login-subtitle {
+    font-size: 0.9375rem;
+    color: #616061;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    }
+
+    .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    }
+
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    }
+
+    .form-input-login {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #1d1c1d;
+    background-color: #ffffff;
+    border: 1px solid #868686;
+    border-radius: 8px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-input-login:hover {
+    border-color: #1d1c1d;
+    }
+
+    .form-input-login:focus {
+    outline: none;
+    border-color: #1264a3;
+    box-shadow: 0 0 0 4px rgba(18, 100, 163, 0.1);
+    }
+
+    .submit-button-login {
+    width: 100%;
+    padding: 0.7rem 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #611f69;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+    margin-top: 0.5rem;
+    }
+
+    .submit-button-login:hover:not(:disabled) {
+    background-color: #4a154b;
+    }
+
+    .submit-button-login:disabled {
+    background-color: #868686;
+    cursor: not-allowed;
+    }
+
+    .submit-button-login.success {
+    background-color: #007a5a;
+    }
+
+    .submit-button-login.success:hover {
+    background-color: #006644;
+    }
+
+    .message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    text-align: center;
+    }
+
+    .message.success {
+    color: #007a5a;
+    background-color: #e8f5e9;
+    border: 1px solid #007a5a;
+    }
+
+    .message.error {
+    color: #e01e5a;
+    background-color: #fdecea;
+    border: 1px solid #e01e5a;
+    }
+
+    .login-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    color: #616061;
+    padding: 0 1rem;
+    }
+
+    .login-footer a {
+    color: #1264a3;
+    text-decoration: none;
+    font-weight: 600;
+    }
+
+    .login-footer a:hover {
+    text-decoration: underline;
+    }
+
+    .login-footers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin-top: auto;
+    width: 100%;
+    }
+
+    .login-footers-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: #616061;
+    }
+
+    /* ===== MEDIA QUERIES PARA MÓVILES ===== */
+
+    @media (max-width: 768px) {
+    .container-login {
+        justify-content: flex-start; /* Cambiamos a flex-start para mejor distribución */
+    }
+
+    .login-container {
+        margin-top: 0;
+        padding: 1rem 0; /* Más padding vertical */
+        justify-content: center; /* Centramos verticalmente el contenido */
+        min-height: calc(
+        100vh - 100px
+        ); /* Aseguramos altura mínima menos el footer */
+    }
+
+    .login-card {
+        padding: 0 1rem;
+        max-width: 100%;
+        margin: auto 0; /* Centrado vertical */
+    }
+
+    .login-title {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .login-subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 2rem; /* Más espacio antes del formulario */
+        padding: 0 0.5rem;
+        line-height: 1.4;
+    }
+
+    .login-form {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        gap: 1.5rem; /* Más espacio entre inputs */
+    }
+
+    .form-input-login {
+        padding: 0.8rem 1rem; /* Inputs más altos en móviles para mejor touch */
+        font-size: 1rem;
+    }
+
+    .submit-button-login {
+        padding: 0.8rem 1rem; /* Botón más alto para mejor touch */
+        font-size: 1rem;
+        margin-top: 1rem; /* Más espacio arriba del botón */
+    }
+
+    .login-logo {
+        margin-bottom: 2rem; /* Más espacio después del logo */
+    }
+
+    .login-logo img {
+        width: 100px;
+    }
+
+    .login-footer {
+        margin-top: 2.5rem; /* Más espacio antes del footer del card */
+        font-size: 0.875rem;
+        padding: 0 0.5rem;
+    }
+
+    .login-footers {
+        padding: 1.5rem 0; /* Footer principal más espaciado */
+        background-color: #f8f8f8;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .login-container {
+        padding: 1.5rem 0;
+        min-height: calc(100vh - 80px);
+    }
+
+    .login-card {
+        padding: 0 0.5rem;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .login-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.5;
+    }
+
+    .login-form {
+        gap: 1.8rem;
+    }
+
+    .form-input-login {
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+    }
+
+    .submit-button-login {
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .login-logo {
+        margin-bottom: 2.5rem;
+    }
+
+    .login-logo img {
+        width: 90px;
+    }
+
+    .login-footer {
+        margin-top: 3rem;
+    }
+
+    .login-footers-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .login-footers-links p {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+    }
+
+    /* Para tablets */
+    @media (max-width: 1024px) and (min-width: 769px) {
+    .login-container {
+        justify-content: center;
+        padding: 2rem 0;
+    }
+
+    .login-card {
+        max-width: 420px;
+        margin: auto 0;
+    }
+
+    .login-title {
+        font-size: 2.5rem;
+    }
+    }

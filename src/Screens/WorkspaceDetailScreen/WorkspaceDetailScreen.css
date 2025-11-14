@@ -1,0 +1,247 @@
+    .workspace-detail-container {
+    background: linear-gradient(135deg, #4a154b 0%, #36184c 50%, #1a0b2e 100%);
+    min-height: 100vh;
+    padding: 20px;
+    padding-left: 0px;
+    }
+
+    .cards-container {
+    display: flex;
+    margin-top: 20px;
+    }
+
+    .ws-detail-title {
+    color: white;
+    font-size: 1.2rem;
+    }
+
+    .icons-sidebar {
+    flex: 0 0 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    gap: 2rem;
+    }
+
+    .card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    height: 90vh; /* Cambio de min-height a height fija */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .left-card {
+    flex: 0 0 450px;
+    background-color: rgba(53, 13, 54, 0.959);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    }
+
+    .left-card-content {
+    flex: 1;
+    overflow-y: auto;
+    }
+
+    .left-title-name {
+    border-bottom: 1px solid #4a1a4b;
+    padding-bottom: 1rem;
+    }
+
+    .left-card-footer {
+    border-top: 1px solid #4a1a4b;
+    padding: 0px;
+    margin-top: auto;
+    }
+
+    .footer-text {
+    color: #d1bdd6;
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: left;
+    }
+
+    .invite-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background: #1a1d21;
+    border: 1px solid #9d6e9d71;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    }
+    .invite-button svg {
+    display: block;
+    flex-shrink: 0;
+    }
+
+    .left-card-footer .invite-button:hover {
+    background: #2a2d31 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .right-card {
+    flex: 1;
+    background-color: rgba(26, 29, 33, 0.8);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Importante para que el chat no se desborde */
+    }
+
+    .empty-chat-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #ccc;
+    padding: 20px;
+    text-align: center;
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    /* Tablets (landscape y portrait) */
+    @media (max-width: 1024px) {
+    .workspace-detail-container {
+        padding: 15px;
+    }
+
+    .left-card {
+        flex: 0 0 280px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .ws-detail-title {
+        font-size: 1.1rem;
+    }
+    }
+
+    /* Tablets pequeñas y móviles grandes */
+    @media (max-width: 768px) {
+    .workspace-detail-container {
+        padding: 10px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .icons-sidebar {
+        display: none; /* Ocultamos los iconos en mobile */
+    }
+
+    .card {
+        min-height: auto;
+        border-radius: 10px !important;
+        margin-bottom: 10px;
+    }
+
+    .left-card {
+        flex: 1;
+        border-radius: 10px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        max-height: 70vh;
+    }
+
+    .right-card {
+        flex: 1;
+        border-radius: 10px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        height: 75vh; /* ← Cambiar de min-height a height */
+        max-height: 75vh; /* ← Agregar max-height */
+    }
+
+    .left-card-footer {
+        padding: 10px 0;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+    }
+
+    .invite-button {
+        font-size: 13px;
+        padding: 8px;
+    }
+    }
+
+    /* Móviles */
+    @media (max-width: 480px) {
+    .workspace-detail-container {
+        padding: 8px;
+    }
+
+    .card {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+
+    .ws-detail-title {
+        font-size: 1rem;
+    }
+
+    .left-card {
+        max-height: 60vh;
+    }
+
+    .right-card {
+        height: 70vh; /* ← Cambiar de min-height a height */
+        max-height: 70vh; /* ← Agregar max-height */
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .invite-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .empty-chat-message {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+    }
+
+    /* Móviles muy pequeños */
+    @media (max-width: 360px) {
+    .workspace-detail-container {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .ws-detail-title {
+        font-size: 0.95rem;
+    }
+
+    .left-card-content {
+        padding: 0;
+    }
+    }

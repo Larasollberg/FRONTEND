@@ -4,6 +4,7 @@ import useForm from '../../hooks/useForm.jsx'
 import {login} from '../../services/authService.js'
 import { useNavigate } from 'react-router'
 import LOCALSTORAGE_KEYS from '../../constants/localstorage.js'
+import "./LoginScreen.css"
 
 const FORM_FIELDS = {
     EMAIL: 'email',
@@ -59,30 +60,36 @@ export const LoginScreen = () => {
 
     return (
         <div>
-            <h1>Iniciar Sesión</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
+
+                <h1>Iniciar Sesión</h1>
+
+            <form onSubmit={handleSubmit} className='auth-form'>
+                <div className='input-group'>
                     <label htmlFor={FORM_FIELDS.EMAIL}>Email:</label>
                     <input
                         name={FORM_FIELDS.EMAIL}
                         id={FORM_FIELDS.EMAIL}
                         type='email'
                         onChange={handleInputChange}
+                        disabled={loading}
+                        required
                     />
                 </div>
-                <div>
+                <div className='input-group'>
                     <label htmlFor={FORM_FIELDS.PASSWORD}>Contraseña:</label>
                     <input
                         name={FORM_FIELDS.PASSWORD}
                         id={FORM_FIELDS.PASSWORD}
                         type='password'
                         onChange={handleInputChange}
+                        disabled={loading}
+                        required
                     />
                 </div>
                 {
                     !response
                         ?
-                        <button type='submit' disabled={loading}>
+                        <button type='submit' className='' disabled={loading}>
                             {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                         </button>
                         :
@@ -97,4 +104,4 @@ export const LoginScreen = () => {
             </form>
         </div>
     )
-}
+    }

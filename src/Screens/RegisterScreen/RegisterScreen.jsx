@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useForm from '../../hooks/useForm.jsx'
 import { register } from '../../services/authService.js'
 import useFetch from '../../hooks/useFetch.jsx'
+import "./RegisterScreen.css"
 
 const FORM_FIELDS = {
     NAME: 'name',
