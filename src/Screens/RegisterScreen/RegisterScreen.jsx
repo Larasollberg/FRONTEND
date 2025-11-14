@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import useForm from '../../hooks/useForm'
-import { register } from '../../services/authService'
-import useFetch from '../../hooks/useFetch'
-
+import useForm from '../../hooks/useForm.jsx'
+import { register } from '../../services/authService.js'
+import useFetch from '../../hooks/useFetch.jsx'
 
 const FORM_FIELDS = {
     NAME: 'name',
@@ -92,6 +91,7 @@ const RegisterScreen = () => {
                 {
                     error && <span style={{color: 'red'}}>{error.message}</span>
                 }
+            
                 
             </form>
         </div>

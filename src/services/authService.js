@@ -1,12 +1,12 @@
-import ENVIRONMENT from "../config/environment"
-import { CONTENT_TYPE_VALUES, HEADERS, HTTP_METHODS } from "../constants/http"
+import ENVIRONMENT from "../config/environment.js"
+import { CONTENT_TYPE_VALUES, HEADERS, HTTP_METHODS } from "../constants/http.js"
 
 
 
 export async function register(name, email, password) {
     const usuario = {
         email,
-        username: name,
+        name: name,
         password
     }
 
@@ -51,3 +51,20 @@ export async function login(email, password) {
     }
     return response_data
 }
+
+/*export async function verifyEmail(token) {
+    const response = await fetch(
+        `${ENVIRONMENT.URL_API}/api/auth/verify?token=${token}`,
+        {
+            method: HTTP_METHODS.GET,  // GET, no POST
+            headers: {
+                // No necesitas Content-Type para GET sin body
+            }
+        }
+    );
+    const response_data = await response.json();
+    if (!response.ok) {
+        throw new Error(response_data.message || 'Error al verificar el email');
+    }
+    return response_data
+}*/
