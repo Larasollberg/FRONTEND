@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import slackLogo from "../../assets/images/slack-logo.png";
+import slackLogo from "../../assets/images/Slack-logo.png";
 import "./CreateNewWorkspace.css";
 
 const CreateNewWorkspace = () => {
