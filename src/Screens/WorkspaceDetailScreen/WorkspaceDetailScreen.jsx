@@ -5,7 +5,7 @@ import { UserPlus } from "lucide-react";
 import { getWorkspaceById, inviteUser } from "../../services/workspaceService.js";
 import ChannelList from "../../components/ChannelList/ChannelList.jsx";
 import useChannels from "../../hooks/useChannels";
-import ChannelChat from "../../components/channelChat/ChannelChat";
+import ChannelChat from "../../components/ChannelChat/ChannelChat.jsx";
 import "./WorkspaceDetailScreen.css";
 import Modal from "../../components/Modal/Modal.jsx";
 import CreateWorkspace from "../../components/CreateWorkspace/CreateWorkspace.jsx";
