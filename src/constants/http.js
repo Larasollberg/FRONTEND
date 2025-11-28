@@ -8,7 +8,8 @@ export const HTTP_METHODS = {
 }
 
 export const HEADERS = {
-    CONTENT_TYPE: 'Content-Type'
+    CONTENT_TYPE: 'Content-Type',
+    AUTHORIZATION: 'Authorization'
 }
 
 export const CONTENT_TYPE_VALUES = {

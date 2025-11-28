@@ -1,13 +1,12 @@
 import ENVIRONMENT from "../config/environment";
-import { getAuthorizationToken } from "../constants/http";
+import { getAuthorizationToken, HTTP_METHODS, HEADERS, CONTENT_TYPE_VALUES } from "../constants/http.js";
 
-import LOCALSTORAGE_KEYS from "../constants/localstorage";
 
 async function getWorkspaceList() {
     const response_http = await fetch(
-        ENVIRONMENT.URL_API + '/api/workspace',
+        `${ENVIRONMENT.URL_API}/api/workspace`,
         {
-            method: 'GET',
+            method: HTTP_METHODS.GET,
             headers: {
                 'Authorization': 'Bearer ' + getAuthorizationToken()
             }
@@ -18,64 +17,61 @@ async function getWorkspaceList() {
     return response_data
 }
 
-/*
-createWorkspace(name, url_img = '')
-Consumir la api para crear un workspace
-*/
 async function createWorkspace(name, url_img = "") {
-    const body = {
-        name: name,
-        url_img: url_img,
-    };
-    const response_http = await fetch(ENVIRONMENT.URL_API + "/api/workspace", {
-        method: "POST",
+    const response_http = await fetch(`${ENVIRONMENT.URL_API}/api/workspace`, {
+        method: HTTP_METHODS.POST,
         headers: {
-            "Content-type": "application/json",
-            'Authorization': `Bearer ${getAuthorizationToken()}`
+        [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
+        Authorization: "Bearer" + getAuthorizationToken()
         },
-        body: JSON.stringify(body),
+        body: JSON.stringify({name, url_img}),
     });
     const response_data = await response_http.json();
-    if (!response_data.ok) {
-        throw new Error(response_data.message)
-    }
     return response_data;
 }
 
 async function getWorkspaceById(workspace_id) {
     const response_http = await fetch(
-        ENVIRONMENT.URL_API + "/api/workspace/" + workspace_id,
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}`,
         {
-            method: "GET",
+            method: HTTP_METHODS.GET,
             headers: {
-                Authorization: "Bearer " + getAuthorizationToken(),
+                Authorization: "Bearer" + getAuthorizationToken(),
             },
         }
     );
     const response_data = await response_http.json();
-    if (!response_data.ok) {
-        throw new Error(response_data.message || "Error al obtener el workspace")
-    }
     return response_data
 }
 
-async function inviteUser (email, workspace_id){
+async function inviteUser (invited_email, workspace_id){
     const response_http = await fetch(
-        ENVIRONMENT.URL_API + "/api/workspace/" + workspace_id + "/invite",
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}/invite`,
         {
-            method: "POST",
+            method: HTTP_METHODS.POST,
             headers: {
-                "Content-type": "application/json",
-                'Authorization': `Bearer ${getAuthorizationToken()}`
+                [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
+                'Authorization': Bearer + getAuthorizationToken()
             },
-            body: JSON.stringify({invited_email: email})
+            body: JSON.stringify({invited_email})
         }
     )
     const response_data = await response_http.json()
-    if (!response_data.ok) {
-        throw new Error(response_data.message)
-    }
     return response_data
 }
 
-export { getWorkspaceList, createWorkspace, getWorkspaceById, inviteUser}
+async function deleteWorkspace(workspace_id) {
+    const response_http = await fetch(
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}`,
+        {
+        method: HTTP_METHODS.DELETE,
+        headers: {
+            Authorization: "Bearer " + getAuthorizationToken(),
+        },
+        }
+    );
+    const response_data = await response_http.json();
+    return response_data;
+    }
+
+export { getWorkspaceList, createWorkspace, getWorkspaceById, inviteUser, deleteWorkspace}

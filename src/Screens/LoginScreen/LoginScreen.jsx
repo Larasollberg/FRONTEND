@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import useFetch from "../../hooks/useFetch.jsx";
+import { useEffect, useCallback } from "react";
+import useFetch  from "../../hooks/useFetch.jsx";
 import useForm from "../../hooks/useForm.jsx";
 import { login } from "../../services/authService.js";
 import { useNavigate } from "react-router";
 import LOCALSTORAGE_KEYS from "../../constants/localstorage.js";
 import "./LoginScreen.css";
-//import slackLogo from "../../assets/images/slack-logo.png";
+import slackLogo from "../../assets/images/Slack-logo.png"
 
 const FORM_FIELDS = {
     EMAIL: "email",
@@ -55,10 +55,9 @@ const FORM_FIELDS = {
                 <img src={slackLogo} alt="Slack logo" />
             </div>
 
-            <h1 className="login-title">Iniciar sesión en Slack</h1>
+            <h1 className="login-title">Escribe tu correo electrónico para iniciar sesión</h1>
             <p className="login-subtitle">
-                Te sugerimos que uses la dirección de correo electrónico que usas en
-                el trabajo.
+                O elige otra manera de iniciar sesión.
             </p>
 
             <form onSubmit={handleSubmit} className="login-form">
@@ -69,7 +68,7 @@ const FORM_FIELDS = {
                     type="email"
                     onChange={handleInputChange}
                     className="form-input-login"
-                    placeholder="nombre@empresa.com"
+                    placeholder="Email"
                 />
                 </div>
                 <div className="form-group">
@@ -109,7 +108,7 @@ const FORM_FIELDS = {
             </form>
 
             <div className="login-footer">
-                ¿Eres nuevo en Slack? <a href="/register">Crea una cuenta</a>
+                ¿Es tu primera vez en Slack? <a href="/register">Crea una cuenta</a>
             </div>
             </div>
         </div>

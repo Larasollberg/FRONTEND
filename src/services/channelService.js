@@ -1,49 +1,54 @@
-import ENVIRONMENT from "../config/environment";
-import { getAuthorizationToken } from "../constants/http.js";
+import ENVIRONMENT from "../config/environment.js";
+import { getAuthorizationToken, HTTP_METHODS, HEADERS, CONTENT_TYPE_VALUES,} from "../constants/http.js";
 
-/* 
-GET /api/workspace/:workspace_id/channels
-*/
-async function getChannelListByWorkspaceId(workspace_id) {
-    const response_http = await fetch(
-        ENVIRONMENT.URL_API + "/api/workspace/" + workspace_id + "/channels",
+    async function getChannelListByWorkspaceId(workspace_id) {
+    if (!workspace_id) {
+        throw new Error('Workspace ID is required');
+    }
+        const response_http = await fetch(
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}/channels`,
         {
-            method: "GET",
-            headers: {
-                Authorization: "Bearer " + getAuthorizationToken(),
-            },
+        method: HTTP_METHODS.GET,
+        headers: {
+            Authorization: "Bearer " + getAuthorizationToken(),
+        },
         }
     );
     const response_data = await response_http.json();
-    if (!response_data.ok) {
-        throw new Error(response_data.message || "Error al obtener los canales");
-    }
     return response_data;
-}
-/* 
-POST /api/workspace/:workspace_id/channels
-Debe enviar el name por body
-*/
-async function createNewChannel(workspace_id, name) {
-    const body = {
-    name: name,
-};
-    const response_http = await fetch(
-    ENVIRONMENT.URL_API + "/api/workspace/" + workspace_id + "/channels",
-    {
-        method: "POST",
-        headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${getAuthorizationToken()}`,
-        },
-        body: JSON.stringify(body),
     }
-    );
-    const response_data = await response_http.json();
-    if (!response_data.ok) {
-    throw new Error(response_data.message);
-    }
-return response_data;
-}
 
-export { getChannelListByWorkspaceId, createNewChannel }
+    async function createNewChannel(workspace_id, channel_name) {
+    const response_http = await fetch(
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}/channels`,
+        {
+        method: HTTP_METHODS.POST,
+        headers: {
+            [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
+            Authorization: "Bearer " + getAuthorizationToken(),
+        },
+        body: JSON.stringify({ name: channel_name }),
+        }
+    );
+
+    const response_data = await response_http.json();
+
+    return response_data;
+    }
+
+    async function deleteChannel(workspace_id, channel_id) {
+    const response_http = await fetch(
+        `${ENVIRONMENT.URL_API}/api/workspace/${workspace_id}/channels/${channel_id}`,
+        {
+        method: HTTP_METHODS.DELETE,
+        headers: {
+            Authorization: "Bearer " + getAuthorizationToken(),
+        },
+        }
+    );
+
+    const response_data = await response_http.json();
+    return response_data;
+    }
+
+export { getChannelListByWorkspaceId, createNewChannel, deleteChannel }

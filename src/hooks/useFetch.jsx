@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-/* Gestion INTERNA de los fetch de mi aplicacion */
+/* Gestion INTERNA de los fetch de mi aplicacion*/
+
 const useFetch = () =>{
     const [loading, setLoading] = useState(false)
     const [response, setResponse] = useState(null)
@@ -20,6 +21,7 @@ const useFetch = () =>{
         }
         catch(error){
             setError(error)
+            throw error
         }
         //Finalmente pase lo que pase deja de cargar
         finally{

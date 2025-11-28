@@ -1,0 +1,270 @@
+    .channel-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0; /* Importante para que funcione el overflow */
+    }
+
+    .channel-chat-header {
+    position: relative; /* ← Importante para el dropdown */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+    }
+
+    .channel-chat-title {
+    color: white;
+    }
+
+    .channel-chat-title-button-ctn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    }
+
+    .channel-chat-title-button {
+    color: white;
+    }
+
+    /* ========== DROPDOWN MENU ========== */
+    .channel-menu-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background-color: #1a1d21;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+    }
+
+    .channel-menu-item {
+    padding: 12px 16px;
+    color: #d5d3d3ff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    }
+
+    .channel-menu-item:hover {
+    background-color: rgb(183, 31, 89);
+    }
+
+    .channel-menu-item:first-child {
+    border-radius: 8px 8px 0 0;
+    }
+
+    .channel-menu-item:last-child {
+    border-radius: 0 0 8px 8px;
+    }
+
+    /* ========== RESTO DEL CHAT ========== */
+    .channel-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 0;
+    }
+
+    .channel-chat-form {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    }
+
+    .channel-chat-input {
+    flex: 1;
+    padding: 10px;
+    background: #1a1d21;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    }
+
+    .channel-chat-button {
+    padding: 10px 20px;
+    background: #1164a3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    }
+
+    .channel-chat-button:hover {
+    background: #0e5189;
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    /* Tablets */
+    @media (max-width: 768px) {
+    .channel-chat-header {
+        padding-bottom: 12px;
+    }
+
+    .channel-chat-title {
+        font-size: 1.1rem;
+    }
+
+    /* Dropdown en tablets */
+    .channel-menu-dropdown {
+        top: 40px;
+        right: 5px;
+        min-width: 180px;
+    }
+
+    .channel-menu-item {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .channel-chat-messages {
+        padding: 12px 0;
+    }
+
+    .channel-chat-form {
+        gap: 8px;
+        padding-top: 12px;
+    }
+
+    .channel-chat-input {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    .channel-chat-button {
+        padding: 9px 16px;
+        font-size: 14px;
+    }
+    }
+
+    /* Móviles */
+    @media (max-width: 480px) {
+    .channel-chat-header {
+        padding-bottom: 10px;
+    }
+
+    .channel-chat-title {
+        font-size: 1rem;
+    }
+
+    .channel-chat-title-button-ctn {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+    }
+
+    /* Dropdown en móviles */
+    .channel-menu-dropdown {
+        top: 38px;
+        right: 0;
+        min-width: 160px;
+        max-width: calc(100vw - 20px); /* No salirse de la pantalla */
+    }
+
+    .channel-menu-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .channel-chat-messages {
+        padding: 10px 0;
+    }
+
+    .channel-chat-form {
+        gap: 6px;
+        padding-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .channel-chat-input {
+        padding: 8px;
+        font-size: 13px;
+        min-width: 100%;
+    }
+
+    .channel-chat-button {
+        padding: 8px 14px;
+        font-size: 13px;
+        width: 100%;
+    }
+    }
+
+    /* Móviles muy pequeños */
+    @media (max-width: 360px) {
+    .channel-chat-title {
+        font-size: 0.95rem;
+    }
+
+    .channel-chat-title-button-ctn {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    /* Dropdown en móviles pequeños */
+    .channel-menu-dropdown {
+        top: 35px;
+        right: 0;
+        min-width: 150px;
+        font-size: 12px;
+    }
+
+    .channel-menu-item {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .channel-chat-input {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    .channel-chat-button {
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+    }
+
+/* ========== PERSONALIZACIÓN DEL SCROLLBAR ========== */
+
+/* Para navegadores Webkit (Chrome, Edge, Safari) */
+.channel-chat-messages::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra */
+}
+
+.channel-chat-messages::-webkit-scrollbar-track {
+  background: transparent; /* Fondo transparente (sin track visible) */
+}
+
+.channel-chat-messages::-webkit-scrollbar-thumb {
+  background: transparent; /* Invisible por defecto */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.channel-chat-messages:hover::-webkit-scrollbar-thumb {
+  background: #888; /* Aparece al hacer hover en el chat */
+}
+
+.channel-chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Más oscuro al pasar sobre la barra misma */
+}
+
+/* Ocultar las flechitas (buttons) */
+.channel-chat-messages::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Para Firefox */
+.channel-chat-messages {
+  scrollbar-width: thin; /* Hace la barra más delgada */
+  scrollbar-color: #888 transparent; /* Color barra | Color track */
+}

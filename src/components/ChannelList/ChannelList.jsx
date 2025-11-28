@@ -1,27 +1,49 @@
-import React, { use, useEffect, useState } from 'react'
-import useFetch from '../../hooks/useFetch.jsx'
+import React, { use, useEffect, useState, useCallback } from 'react'
+import useFetch from "/src/hooks/useFetch.jsx"
 import { createNewChannel, getChannelListByWorkspaceId } from '../../services/channelService.js'
 import { Link, useParams } from 'react-router'
-import useChannels from '../../hooks/useChannels'
-
-const ChannelList = () => {
-    const {workspace_id} = useParams()
-    const {channels} = useChannels()
+import  useChannels from '../../hooks/useChannels'
 
 
-    console.log({channels})
+const ChannelList = ({
+    onSelectChannel,
+    selectedChannel,
+    channels,
+    onCreateClick,
+    }) => {
+    const { workspace_id } = useParams();
 
     return (
-        <div style={{display: 'flex', flexDirection:"column"}}>
-            {
-                channels.map((elemento) => {
-                    return (
-                        <Link key={elemento.channel_id} to={`/workspace/${workspace_id}/${elemento._id}`}>{elemento.name}</Link>
-                    )
-                })
-            }
+        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+            style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingBottom: "0.5rem",
+            }}
+        >
+            <h2 className="canal-title">Canales</h2>
+            <button onClick={onCreateClick} className="add-channel-button">
+            +
+            </button>
         </div>
-    )
-}
+        {Array.isArray(channels) &&
+            channels.map((elemento) => {
+            return (
+                <button
+                key={elemento._id}
+                onClick={() => onSelectChannel(elemento._id)}
+                className={`channel-item ${
+                    elemento._id === selectedChannel ? "channel-item-active" : ""
+                }`}
+                >
+                # {elemento.name}
+                </button>
+            );
+            })}
+        </div>
+    );
+    };
 
 export default ChannelList
