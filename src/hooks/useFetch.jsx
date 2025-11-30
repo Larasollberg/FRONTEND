@@ -21,7 +21,6 @@ const useFetch = () =>{
         }
         catch(error){
             setError(error)
-            throw error
         }
         //Finalmente pase lo que pase deja de cargar
         finally{
