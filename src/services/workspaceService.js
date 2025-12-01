@@ -27,6 +27,18 @@ async function createWorkspace(name, url_img = "") {
         body: JSON.stringify({name, url_img}),
     });
     const response_data = await response_http.json();
+    if (response_data.success && !response_data.data?.workspace?._id) {
+        console.log('Workspace created, fetching list to get ID...');  // Log para depurar
+        const listResponse = await getWorkspaceList();
+        if (listResponse.success) {
+            const createdWorkspace = listResponse.data.workspaces.find(ws => ws.name === name);
+            if (createdWorkspace) {
+                response_data.data = { workspace: createdWorkspace };  // Fusiona el ID
+            } else {
+                console.error('Workspace not found in list after creation');
+            }
+        }
+    }
     return response_data;
 }
 
@@ -51,7 +63,7 @@ async function inviteUser (invited_email, workspace_id){
             method: HTTP_METHODS.POST,
             headers: {
                 [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
-                'Authorization': Bearer + getAuthorizationToken()
+                'Authorization': "Bearer " + getAuthorizationToken()
             },
             body: JSON.stringify({invited_email})
         }

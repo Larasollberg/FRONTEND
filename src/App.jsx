@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 import RegisterScreen from './Screens/RegisterScreen/RegisterScreen.jsx'
-import { LoginScreen }  from './Screens/LoginScreen/LoginScreen.jsx'
+import LoginScreen  from './Screens/LoginScreen/LoginScreen.jsx'
 import AuthMiddleware from './Middlewares/AuthMiddleware.jsx'
 import HomeScreen  from './Screens/HomeScreen/HomeScreen.jsx'
 import WorkspaceDetailScreen from './Screens/WorkspaceDetailScreen/WorkspaceDetailScreen.jsx'
 import CreateNewWorkspace from './Screens/CreateNewWorkspace/CreateNewWorkspace.jsx'
+import NewWorkspaceScreen from './Screens/NewWorkspaceScreen/NewWorkspaceScreen.jsx'
 
 
 function App() {
@@ -23,7 +24,7 @@ return (
             />
             <Route 
                 path='/workspace/new' 
-                element={<WorkspaceDetailScreen />} 
+                element={<NewWorkspaceScreen />} 
             />
             <Route path='/workspace/:workspace_id'
             element={<WorkspaceDetailScreen/>}

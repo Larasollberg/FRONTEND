@@ -7,6 +7,7 @@ const CreateNewWorkspace = () => {
     const navigate = useNavigate();
 
     const handleContinue = () => {
+        console.log('handleContinue called, navigating to /workspace/new');
         navigate("/workspace/new");
     };
 

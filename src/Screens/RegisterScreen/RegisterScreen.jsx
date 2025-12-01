@@ -85,7 +85,7 @@ import slackLogo from "../../assets/images/Slack-logo.png"
                     type="password"
                     onChange={handleInputChange}
                     className="form-input-register"
-                    placeholder="Crea una contraseña"
+                    placeholder="Crea una contraseña de más de 8 caracteres"
                 />
                 </div>
 
