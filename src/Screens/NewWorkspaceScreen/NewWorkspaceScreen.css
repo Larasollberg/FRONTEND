@@ -1,17 +1,12 @@
-/* --------------------------------------------------------------------- */
-/* --- 1. Estilos Globales y Contenedor Principal --- */
-/* --------------------------------------------------------------------- */
 
 .new-workspace-container {
-    /* Ocupa toda la altura y el ancho disponible */
     min-height: 100vh;
     width: 100%;
-    /* Flexbox para centrar todo el contenido */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #f0f2f5; /* Fondo suave */
+    background-color: #f0f2f5;
     box-sizing: border-box;
 }
 
@@ -29,13 +24,11 @@
 .new-workspace-form-card h1 {
     font-size: 2em;
     font-weight: 700;
-    color: #1e293b; /* Color oscuro para el título */
+    color: #1e293b; 
     margin-bottom: 20px;
 }
 
-/* --------------------------------------------------------------------- */
-/* --- 2. Estilos del Formulario y Campos --- */
-/* --------------------------------------------------------------------- */
+
 
 .form-field-group {
     margin-bottom: 25px;

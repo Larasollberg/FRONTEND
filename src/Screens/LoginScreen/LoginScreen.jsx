@@ -2,7 +2,7 @@ import { useEffect, useCallback } from "react";
 import useFetch  from "../../hooks/useFetch.jsx";
 import useForm from "../../hooks/useForm.jsx";
 import { login } from "../../services/authService.js";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import LOCALSTORAGE_KEYS from "../../constants/localstorage.js";
 import "./LoginScreen.css";
 import slackLogo from "../../assets/images/Slack-logo.png"
