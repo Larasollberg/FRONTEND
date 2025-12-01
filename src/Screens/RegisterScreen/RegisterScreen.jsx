@@ -4,7 +4,7 @@ import { register } from '../../services/authService.js'
 import  useFetch  from '../../hooks/useFetch.jsx'
 import "./RegisterScreen.css"
 import slackLogo from "../../assets/images/Slack-logo.png"
-import { Link } from "react-router";
+import { useNavigate, Link } from "react-router";
 
     const FORM_FIELDS = {
     NAME: "name",
