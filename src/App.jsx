@@ -9,7 +9,6 @@ import CreateNewWorkspace from './Screens/CreateNewWorkspace/CreateNewWorkspace.
 import NewWorkspaceScreen from './Screens/NewWorkspaceScreen/NewWorkspaceScreen.jsx'
 
 
-
 function App() {
 
 return (
