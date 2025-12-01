@@ -177,6 +177,75 @@
     color: #616061;
     }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container-register {
+        justify-content: flex-start;
+    }
+
+    .register-container {
+        margin-top: 0;
+        padding: 1rem 0;
+        justify-content: center;
+        min-height: calc(100vh - 100px);
+    }
+
+    .register-card {
+        padding: 0 1rem;
+        max-width: 100%;
+        margin: auto 0;
+    }
+
+    .register-title {
+        font-size: 3.3rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .register-subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+        line-height: 1.4;
+    }
+
+    .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    }
+
+    .form-input-register {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+
+    .submit-button-register {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .register-logo {
+        margin-bottom: 2rem;
+    }
+
+    .register-logo img {
+        width: 100px;
+    }
+
+    .register-footer {
+        margin-top: 2.5rem;
+        font-size: 0.875rem;
+        padding: 0 0.5rem;
+    }
+
+    .register-footers {
+        padding: 1.5rem 0;
+        background-color: #f8f8f8;
+    }
+    }
 
     @media (max-width: 768px) {
     .container-register {
@@ -308,73 +377,5 @@
     }
 
 
-@media (max-width: 1024px) and (min-width: 769px) {
-    .container-register {
-        justify-content: flex-start;
-    }
 
-    .register-container {
-        margin-top: 0;
-        padding: 1rem 0;
-        justify-content: center;
-        min-height: calc(100vh - 100px);
-    }
-
-    .register-card {
-        padding: 0 1rem;
-        max-width: 100%;
-        margin: auto 0;
-    }
-
-    .register-title {
-        font-size: 3.3rem;
-        line-height: 1.1;
-        margin-bottom: 1rem;
-    }
-
-    .register-subtitle {
-        font-size: 0.875rem;
-        margin-bottom: 2rem;
-        padding: 0 0.5rem;
-        line-height: 1.4;
-    }
-
-    .register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    }
-
-    .form-input-register {
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-    }
-
-    .submit-button-register {
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-        margin-top: 1rem;
-    }
-
-    .register-logo {
-        margin-bottom: 2rem;
-    }
-
-    .register-logo img {
-        width: 100px;
-    }
-
-    .register-footer {
-        margin-top: 2.5rem;
-        font-size: 0.875rem;
-        padding: 0 0.5rem;
-    }
-
-    .register-footers {
-        padding: 1.5rem 0;
-        background-color: #f8f8f8;
-    }
-    }
     
