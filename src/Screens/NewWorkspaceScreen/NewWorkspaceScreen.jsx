@@ -36,22 +36,15 @@ const NewWorkspaceScreen = () => {
         }
     )
     useEffect(() => {
-        console.log('Response after create:', response);  // ✅ Log para ver la estructura
-        console.log('Error:', error);  // ✅ Log para errores
+        console.log('Response after create:', response);  
+        console.log('Error:', error);  
         
-        // Condición flexible: Busca el ID en posibles lugares de la respuesta
         const workspaceId = response?.data?.workspace?._id || response?.workspace?.id || response?.id;
         if (response && !error && workspaceId) {
-            console.log('Redirecting to workspace:', workspaceId);  // ✅ Log antes de navegar
+            console.log('Redirecting to workspace:', workspaceId); 
             navigate(`/workspace/${workspaceId}`);
         }
     }, [response, error, navigate]);
-    /*useEffect(() => {
-        if (response && !error && response.data?.workspace?._id) {
-            // Navega al workspace recién creado
-            navigate(`/workspace/${response.data.workspace._id}`);
-        }
-    }, [response, error, navigate]);*/
 
 
     return (
@@ -70,19 +63,6 @@ const NewWorkspaceScreen = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                {/* <br />
-                <div>
-                    <label htmlFor={FORM_FIELDS.IMAGE}>Ruta de imagen: </label>
-                    <br />
-                    <input
-                        type="text"
-                        name={FORM_FIELDS.IMAGE}
-                        id={FORM_FIELDS.IMAGE}
-                        value={register_form_state[FORM_FIELDS.IMAGE]}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <br />   */}
                 <div>
                     {
                         !response
@@ -90,7 +70,7 @@ const NewWorkspaceScreen = () => {
                             :
                             <>
                                 <button type="submit" disabled={true}>Crear</button>
-                                response && response.message && <span style={{ color: 'green' }}>{response.message}</span>
+                                <span style={{ color: 'green' }}>{response.message}</span>
                             </>
                     }
                     {
