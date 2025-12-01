@@ -246,7 +246,7 @@
         background-color: #f8f8f8;
     }
     }
-
+/* ver */
     @media (max-width: 768px) {
     .container-register {
         justify-content: flex-start;
