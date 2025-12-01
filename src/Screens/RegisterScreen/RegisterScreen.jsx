@@ -119,7 +119,7 @@ import slackLogo from "../../assets/images/Slack-logo.png"
             </form>
 
             <div className="register-footer">
-                ¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
+                ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
             </div>
             </div>
         </div>
