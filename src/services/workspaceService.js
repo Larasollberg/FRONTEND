@@ -24,10 +24,14 @@ async function createWorkspace(name, url_img = "") {
         method: HTTP_METHODS.POST,
         headers: {
         [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
-        Authorization: "Bearer " + token,
+        Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({name, url_img}),
     });
+    console.log('Headers enviados:', {
+    'Content-Type': CONTENT_TYPE_VALUES.JSON,
+    'Authorization': `Bearer ${token}`  // Log para depurar
+});
     const response_data = await response_http.json();
     if (response_data.success && !response_data.data?.workspace?._id) {
         console.log('Workspace created, fetching list to get ID...');  // Log para depurar
@@ -50,7 +54,7 @@ async function getWorkspaceById(workspace_id) {
         {
             method: HTTP_METHODS.GET,
             headers: {
-                Authorization: "Bearer" + getAuthorizationToken(),
+                Authorization: "Bearer " + getAuthorizationToken(),
             },
         }
     );
