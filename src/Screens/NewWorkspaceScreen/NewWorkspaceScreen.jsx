@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch"
 import useForm from "../../hooks/useForm" 
 import { useEffect } from "react"  
 import { createWorkspace } from "../../services/workspaceService.js"
+import "./NewWorkspaceScreen.css"
 
 
 const NewWorkspaceScreen = () => {
