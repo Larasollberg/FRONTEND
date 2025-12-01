@@ -108,7 +108,7 @@ const FORM_FIELDS = {
             </form>
 
             <div className="login-footer">
-                ¿Es tu primera vez en Slack? <a href="/register">Crea una cuenta</a>
+                ¿Es tu primera vez en Slack? <Link to="/register">Crea una cuenta</Link>
             </div>
             </div>
         </div>
