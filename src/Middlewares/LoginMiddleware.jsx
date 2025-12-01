@@ -3,7 +3,7 @@ import LOCAL_STORAGE_KEYS from '../../constants/localStorage'
 import { Navigate, Outlet } from 'react-router-dom'
 
 
-export const LoginMidelware = () => {
+export const LoginMiddelware = () => {
 
     //Obtenemos un elemento del local storage
     const auth_token=localStorage.getItem(LOCAL_STORAGE_KEYS.AUTH_TOKEN)
@@ -18,4 +18,4 @@ export const LoginMidelware = () => {
     }
 
 }
-export default LoginMidelware
+export default LoginMiddelware
