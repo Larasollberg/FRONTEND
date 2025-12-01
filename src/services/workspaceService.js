@@ -8,7 +8,7 @@ async function getWorkspaceList() {
         {
             method: HTTP_METHODS.GET,
             headers: {
-                'Authorization': 'Bearer ' + getAuthorizationToken()
+                'Authorization': "Bearer " + getAuthorizationToken() 
             }
         }
     )
@@ -18,11 +18,13 @@ async function getWorkspaceList() {
 }
 
 async function createWorkspace(name, url_img = "") {
+    const token = getAuthorizationToken();
+    console.log('Token enviado:', token);
     const response_http = await fetch(`${ENVIRONMENT.URL_API}/api/workspace`, {
         method: HTTP_METHODS.POST,
         headers: {
         [HEADERS.CONTENT_TYPE]: CONTENT_TYPE_VALUES.JSON,
-        Authorization: "Bearer" + getAuthorizationToken()
+        Authorization: "Bearer " + token,
         },
         body: JSON.stringify({name, url_img}),
     });

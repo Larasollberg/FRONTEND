@@ -2,11 +2,12 @@ import React from 'react'
 import { Route, Routes } from 'react-router'
 import RegisterScreen from './Screens/RegisterScreen/RegisterScreen.jsx'
 import LoginScreen  from './Screens/LoginScreen/LoginScreen.jsx'
-import AuthMiddleware from './Middlewares/AuthMiddleware.jsx'
+import AuthMiddleware from './middlewares/auth.middleware.jsx'
 import HomeScreen  from './Screens/HomeScreen/HomeScreen.jsx'
 import WorkspaceDetailScreen from './Screens/WorkspaceDetailScreen/WorkspaceDetailScreen.jsx'
 import CreateNewWorkspace from './Screens/CreateNewWorkspace/CreateNewWorkspace.jsx'
 import NewWorkspaceScreen from './Screens/NewWorkspaceScreen/NewWorkspaceScreen.jsx'
+
 
 
 function App() {

@@ -1,4 +1,4 @@
-import LOCALSTORAGE_KEYS from "./localstorage"
+import LOCALSTORAGE_KEYS from "../constants/localstorage"
 
 export const HTTP_METHODS = {
     GET:'GET',
@@ -18,5 +18,6 @@ export const CONTENT_TYPE_VALUES = {
 
 export function getAuthorizationToken (){
     const auth_token = localStorage.getItem(LOCALSTORAGE_KEYS.AUTH_TOKEN)
+    console.log('Token obtenido:', auth_token);
     return auth_token
 }

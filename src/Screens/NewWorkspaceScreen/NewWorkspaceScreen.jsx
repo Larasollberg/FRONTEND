@@ -70,7 +70,7 @@ const NewWorkspaceScreen = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <br />
+                {/* <br />
                 <div>
                     <label htmlFor={FORM_FIELDS.IMAGE}>Ruta de imagen: </label>
                     <br />
@@ -82,7 +82,7 @@ const NewWorkspaceScreen = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <br />  
+                <br />   */}
                 <div>
                     {
                         !response
