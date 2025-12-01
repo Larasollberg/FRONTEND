@@ -30,16 +30,16 @@ async function createWorkspace(name, url_img = "") {
     });
     console.log('Headers enviados:', {
     'Content-Type': CONTENT_TYPE_VALUES.JSON,
-    'Authorization': `Bearer ${token}`  // Log para depurar
+    'Authorization': `Bearer ${token}`  
 });
     const response_data = await response_http.json();
     if (response_data.success && !response_data.data?.workspace?._id) {
-        console.log('Workspace created, fetching list to get ID...');  // Log para depurar
+        console.log('Workspace created, fetching list to get ID...');  
         const listResponse = await getWorkspaceList();
         if (listResponse.success) {
             const createdWorkspace = listResponse.data.workspaces.find(ws => ws.name === name);
             if (createdWorkspace) {
-                response_data.data = { workspace: createdWorkspace };  // Fusiona el ID
+                response_data.data = { workspace: createdWorkspace };  
             } else {
                 console.error('Workspace not found in list after creation');
             }

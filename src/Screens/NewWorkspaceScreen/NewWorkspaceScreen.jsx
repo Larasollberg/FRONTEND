@@ -5,7 +5,6 @@ import { useEffect } from "react"
 import { createWorkspace } from "../../services/workspaceService.js"
 
 
-
 const NewWorkspaceScreen = () => {
 
     const FORM_FIELDS =
@@ -48,11 +47,12 @@ const NewWorkspaceScreen = () => {
 
 
     return (
-        <div>
+        <div className="new-workspace-container">
+            <div className="new-workspace-form-card">
             <h1>Crea tu Workspace</h1>
             <br />
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="form-field-group">
                     <label htmlFor={FORM_FIELDS.NAME}>Nombre del Workspace: </label>
                     <br />
                     <input
@@ -63,10 +63,11 @@ const NewWorkspaceScreen = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <div>
+                <div className="status-messsage-container">
                     {
                         !response
-                            ? <button type="submit" disabled={loading}>Crear</button>
+                            ? <button type="submit" className="submit-button" disabled={loading}>Crear</button>
+                                
                             :
                             <>
                                 <button type="submit" disabled={true}>Crear</button>
@@ -80,6 +81,7 @@ const NewWorkspaceScreen = () => {
                 </div>
             </form>
         </div>
+    </div>
     )
 }
 export default NewWorkspaceScreen

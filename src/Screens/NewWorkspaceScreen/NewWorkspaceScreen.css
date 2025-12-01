@@ -1,0 +1,145 @@
+/* --------------------------------------------------------------------- */
+/* --- 1. Estilos Globales y Contenedor Principal --- */
+/* --------------------------------------------------------------------- */
+
+.new-workspace-container {
+    /* Ocupa toda la altura y el ancho disponible */
+    min-height: 100vh;
+    width: 100%;
+    /* Flexbox para centrar todo el contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5; /* Fondo suave */
+    box-sizing: border-box;
+}
+
+.new-workspace-form-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.new-workspace-form-card h1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #1e293b; /* Color oscuro para el título */
+    margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------- */
+/* --- 2. Estilos del Formulario y Campos --- */
+/* --------------------------------------------------------------------- */
+
+.form-field-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-field-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.95em;
+}
+
+.form-field-group input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-field-group input[type="text"]:focus {
+    border-color: #3b82f6; /* Azul de enfoque */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    outline: none;
+}
+
+/* --------------------------------------------------------------------- */
+/* --- 3. Estilos de Botones y Mensajes de Estado --- */
+/* --------------------------------------------------------------------- */
+
+.status-messsage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.submit-button,
+.status-messsage-container button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #3b82f6; /* Azul primario */
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: background-color 0.3s, opacity 0.3s, transform 0.1s;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #2563eb; /* Azul más oscuro al pasar el ratón */
+}
+
+.submit-button:disabled,
+.status-messsage-container button:disabled {
+    background-color: #9ca3af; /* Gris para deshabilitado */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.status-messsage-container span {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------- */
+/* --- 4. Responsive Design (Media Queries) --- */
+/* --------------------------------------------------------------------- */
+
+/* Pequeñas pantallas / Móviles */
+@media (max-width: 640px) {
+    .new-workspace-container {
+        padding: 10px;
+    }
+
+    .new-workspace-form-card {
+        padding: 25px 20px;
+        box-shadow: none; /* Eliminar sombra en móvil para un diseño más limpio */
+        border: none;
+        border-radius: 0;
+    }
+
+    .new-workspace-form-card h1 {
+        font-size: 1.7em;
+        margin-bottom: 15px;
+    }
+
+    .submit-button,
+    .status-messsage-container button {
+        padding: 14px;
+    }
+}
+
+/* Pantallas Medianas (Tablets) */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .new-workspace-form-card {
+        max-width: 400px;
+        padding: 30px;
+    }
+}

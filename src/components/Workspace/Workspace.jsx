@@ -2,7 +2,7 @@ import React from "react";
 import { useWorkspaceMenu } from "../../hooks/useWorkspaceMenu";
 import { getInitials } from "../../utils/workspaceUtils.js";
 import { useNavigate } from "react-router";
-import { deleteWorkspace } from "../../services/workspaceService"; // ← Nuevo
+import { deleteWorkspace } from "../../services/workspaceService"
 import "./Workspace.css";
 
     const Workspace = ({ currentWorkspace, allWorkspaces, isAdmin }) => {
